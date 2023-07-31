@@ -1,0 +1,39 @@
+.container{
+  margin-top: 5rem;
+  width: 60%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  backdrop-filter: blur(8px);
+  background-color: rgba(6, 0, 71, 0.3);
+}
+
+.containerCard{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+
+.containerCardText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 3rem;
+}
+
+.titulo{
+  color: #0ed575;
+  font-size: 2.5rem;
+}
+
+.text{
+  color: #0ed575;
+  margin-top: 1.5rem;
+}
+
+.image{
+  border-radius: 50%;
+}

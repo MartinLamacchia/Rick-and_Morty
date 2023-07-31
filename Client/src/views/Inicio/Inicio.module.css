@@ -1,0 +1,67 @@
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../../asset/img/fondo1.jpg);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.botones{
+  width: 60%;
+  position: absolute;
+  display: flex;
+  justify-content:flex-start;
+  bottom: 3rem;
+}
+
+.main{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  margin: auto;
+  background: rgba(0,0,0,0.5);
+}
+
+.containerForm{
+  width: 100%;
+  max-width: 50rem;
+  margin: auto;
+  position: relative;
+}
+
+.cajaTrasera{
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  background-color: rgb(14, 213, 117, 0.3);
+}
+
+.marca{
+  position: absolute;
+  bottom: 20px;
+  color: #ffffff;
+  transition: all 300ms ease;
+}
+
+.gitHub{
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 300ms ease;
+}
+
+.marca:hover, .gitHub:hover{
+  transform: scale(1.1);
+}
+
+

@@ -1,0 +1,93 @@
+.loginRegister{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  top: -210px;
+  left: 10px;
+}
+
+.loginRegister form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width:  50%;
+  height: 27rem;
+  padding: 60px 20px;
+  background: #ffffff;
+  position: absolute;
+  border-radius: 20px;
+}
+
+.titulo{
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #060047;
+}
+
+.loginRegister .input{
+  width: 90%;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background: #f2f2f2;
+  font-size: 16px;
+  outline: none;
+  border-radius: 20px;
+}
+
+.error{
+  width: 90%;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #980000;
+  background: #f2f2f2;
+  font-size: 16px;
+  outline: none;
+  border-radius: 20px;
+}
+
+.input:focus{
+  border: 2px solid #060047;
+}
+
+.boton{
+  padding: 10px 40px;
+  margin-top: 40px;
+  border: none;
+  font-size: 14px;
+  background: #060047;
+  color: #ffffff;
+  cursor: pointer;
+  outline: none;
+  border-radius: 20px;
+  transition: all 500ms ease;
+}
+
+.boton:hover{
+  background: #ffffff;
+  color: #060047;
+  border: 2px solid #060047;
+}
+
+.span{
+  font-size: 1rem;
+  color: #980000;
+  margin-top: 1rem;
+}
+
+.botonShow{
+  position: absolute;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  right: 8px;
+  bottom: 170px;
+}
+
+
+.imgShow{
+  width: 1.5rem;
+}
