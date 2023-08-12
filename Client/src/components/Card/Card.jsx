@@ -14,8 +14,6 @@ const Card = ({ onClose, image, name, species, gender, id }) => {
 
   const myFavorites = useSelector((state) => state.myFavorites);
 
-  console.log(myFavorites);
-
   useEffect(() => {
     myFavorites.forEach((fav) => {
       if (fav.id === id) {
@@ -35,10 +33,11 @@ const Card = ({ onClose, image, name, species, gender, id }) => {
     if (!isFav) {
       setIsFav(true);
       if(!existe){
-        dispatch(addFav(id))
+        dispatch(addFav({id, image, name, species, gender}))
       }
     } else {
       setIsFav(false);
+      myFavorites.filter((char) => char.id !== id);
       dispatch(removeFav(id));
     }
   };

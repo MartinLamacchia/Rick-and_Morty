@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios'
 import style from "./FormLogin.module.css";
 import { useState } from "react";
 import logoShow from "../../asset/img/show.png";
@@ -31,14 +32,16 @@ function FormLogin({ setUser }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const ingresar = validadDB(form.email, form.contraseña)
-
-    if (ingresar === 1) {
-      setUser([{ Nombre: form.email, Contraseña: form.contraseña }])
-      navigate("/home")
-    }else{
-      return window.alert('Usuario o Contraseña invalido')
-    }
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${form.email}&password=${form.contraseña}`).then(({ data }) => {
+      const { access } = data;
+      if (access) {
+        setUser([{ Nombre: form.email, Contraseña: form.contraseña }]);
+        navigate("/home");
+      } else {
+        return window.alert("Usuario o Contraseña invalido");
+      }
+    });  
   };
 
   const handleShow = (event) => {
@@ -84,9 +87,7 @@ function FormLogin({ setUser }) {
             <img src={logoShow} alt="" className={style.imgShow} />
           </button>
         )}
-        <button className={style.boton}>
-          Entrar
-        </button>
+        <button className={style.boton}>Entrar</button>
       </form>
     </div>
   );
