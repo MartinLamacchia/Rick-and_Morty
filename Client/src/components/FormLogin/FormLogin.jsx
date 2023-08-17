@@ -29,11 +29,13 @@ function FormLogin({ setUser }) {
     setError(validarLogin({ ...form, [propiedad]: valor }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${form.email}&password=${form.contraseña}`).then(({ data }) => {
+    try {
+      await axios(URL + `?email=${form.email}&password=${form.contraseña}`)
+      .then(({ data }) => {
       const { access } = data;
       if (access) {
         setUser([{ Nombre: form.email, Contraseña: form.contraseña }]);
@@ -42,6 +44,10 @@ function FormLogin({ setUser }) {
         return window.alert("Usuario o Contraseña invalido");
       }
     });  
+    } catch (error) {
+      
+    }
+    
   };
 
   const handleShow = (event) => {
