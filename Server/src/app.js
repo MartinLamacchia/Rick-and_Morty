@@ -2,7 +2,6 @@ const express = require("express");
 const router = require("./routes/index");
 const morgan = require("morgan");
 const app = express();
-const PORT = 3001;
 
 app.use(express.json());
 
@@ -19,8 +18,19 @@ app.use((req, res, next) => {
 
 app.use(morgan("dev"));
 
+app.get("/error", (req, res, next) => {
+  // Simulación de un error interno
+  const error = new Error("Error interno en el servidor");
+  error.status = 500;
+  next(error);
+});
+
+// Middleware para manejar errores
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).send("¡Algo salió mal!");
+});
+
 app.use("/rickandmorty", router);
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+module.exports = app;

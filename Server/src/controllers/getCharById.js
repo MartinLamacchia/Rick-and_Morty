@@ -8,8 +8,28 @@ const getCharById = async function (req, res) {
     if (data.error) {
       res.status(404).json({ message: "Error 404 Character not found" });
     } else {
-      const { id, status, name, species, origin, image, gender } = data;
-      const character = { id, status, name, species, origin, image, gender };
+      const {
+        id,
+        status,
+        name,
+        species,
+        origin,
+        image,
+        gender,
+        location,
+        created,
+      } = data;
+      const character = {
+        id,
+        status,
+        name,
+        species,
+        origin,
+        image,
+        gender,
+        location,
+        created,
+      };
 
       res.json(character);
     }
