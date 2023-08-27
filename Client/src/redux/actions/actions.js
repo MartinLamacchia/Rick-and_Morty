@@ -6,7 +6,7 @@ export const FILTER = "FILTER";
 export const ORDER = "ORDER";
 
 export const addFav = (id) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  const endpoint = "http://localhost:3002/rickandmorty/fav";
   return async (dispatch) => {
     try {
       await axios.post(endpoint, id).then(({ data }) => {
@@ -22,7 +22,7 @@ export const addFav = (id) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
+  const endpoint = `http://localhost:3002/rickandmorty/fav/${id}`;
   return async (dispatch) => {
     try {
       await axios.delete(endpoint).then(({ data }) => {
@@ -40,7 +40,7 @@ export const removeFav = (id) => {
 
 export const detailCard = (id) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+    fetch(`http://localhost:3002/rickandmorty/character/${id}`)
       .then((res) => res.json())
       .then((data) => dispatch({ type: DETAIL_CARD, payload: data }));
   };

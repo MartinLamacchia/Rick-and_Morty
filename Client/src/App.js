@@ -14,7 +14,7 @@ function App() {
 
   const searchCharacter = async (id) => {
     try {
-      await fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+      await fetch(`http://localhost:3002/rickandmorty/character/${id}`)
         .then((res) => res.ok && res.json())
         .then((data) => {
           if (!characters.find((char) => char.id === data.id)) {

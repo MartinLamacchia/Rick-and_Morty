@@ -4,6 +4,8 @@ const verificarLogin = function (req, res) {
   const { email } = req.query;
   const { password } = req.query;
 
+  console.log(email, password);
+
   const user = users.find(
     (user) => user.email === email && user.password === password
   );

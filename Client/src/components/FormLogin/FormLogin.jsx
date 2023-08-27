@@ -32,10 +32,11 @@ function FormLogin({ setUser }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const URL = "http://localhost:3001/rickandmorty/login/";
+    const URL = "http://localhost:3002/rickandmorty/login/";
     try {
       await axios(URL + `?email=${form.email}&password=${form.contraseña}`)
       .then(({ data }) => {
+        console.log(data);
       const { access } = data;
       if (access) {
         setUser([{ Nombre: form.email, Contraseña: form.contraseña }]);
@@ -45,7 +46,7 @@ function FormLogin({ setUser }) {
       }
     });  
     } catch (error) {
-      
+      console.log(error);
     }
     
   };
