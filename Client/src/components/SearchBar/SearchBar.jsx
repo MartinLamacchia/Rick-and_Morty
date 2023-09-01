@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import style from "./SearchBar.module.css";
 import { useLocation } from "react-router-dom";
 
-function SearchBar({ onSearch }) {
+function SearchBar({ searchCharacter }) {
   const [id, setID] = useState("");
   const location = useLocation();
+  
   const handleChange = (event) => {
     setID(event.target.value);
   };
 
   const handleSearch = (id) => {
-    onSearch(id);
+    searchCharacter(id);
     setID("");
   };
 

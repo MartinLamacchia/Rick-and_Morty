@@ -9,3 +9,19 @@ Content-Type: application/json
   "email": "martinjiro22@gmail.com",
   "password": "Pass123"
 }
+
+### Traer Favoritos
+POST http://localhost:3002/rickandmorty/fav
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "Mart",
+  "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+  "species": "Human",
+  "gender": "Male"
+}
+
+
+### Traer Todos Favoritos
+GET http://localhost:3002/rickandmorty/character/10

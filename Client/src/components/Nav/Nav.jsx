@@ -10,7 +10,7 @@ function Nav({setUsers, searchCharacter}) {
     <div className={style.container}>
       <img src={logo} alt="Logo Rick and Morty" />
       <div className={style.containerMenu}>
-        <SearchBar onSearch={searchCharacter}/>
+        <SearchBar searchCharacter={searchCharacter}/>
         <BotonHome id='about' name='About' />
         <BotonHome id='home' name='Home' />
         <BotonHome id='favorite' name='Favorite'/>

@@ -3,8 +3,10 @@ const URL = "https://rickandmortyapi.com/api/character/";
 
 const getCharById = async function (req, res) {
   const { id } = req.params;
+  console.log(id);
   try {
     const { data } = await axios(`${URL}${id}`);
+    console.log(data);
     if (data.error) {
       res.status(404).json({ message: "Error 404 Character not found" });
     } else {

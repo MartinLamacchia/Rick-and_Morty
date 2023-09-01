@@ -4,6 +4,7 @@ import {
   FILTER,
   ORDER,
   REMOVE_FAV,
+  ALL_FAV,
 } from "../actions/actions";
 
 const initialState = {
@@ -24,6 +25,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: action.payload,
+        allCharacters: action.payload,
+      };
+    case ALL_FAV:
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
     case DETAIL_CARD:
       return {

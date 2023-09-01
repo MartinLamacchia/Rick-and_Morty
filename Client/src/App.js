@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Inicio from "./views/Inicio/Inicio";
@@ -14,19 +15,19 @@ function App() {
 
   const searchCharacter = async (id) => {
     try {
-      await fetch(`http://localhost:3002/rickandmorty/character/${id}`)
-        .then((res) => res.ok && res.json())
-        .then((data) => {
-          if (!characters.find((char) => char.id === data.id)) {
-            if (data.name) {
-              setCharacters((oldCharacter) => [...oldCharacter, data]);
-            } else {
-              window.alert(data);
-            }
-          } else {
-            window.alert("El id ya esta ingresado");
-          }
-        });
+      const { data } = await axios(
+        `http://localhost:3002/rickandmorty/character/${id}`
+      );
+
+      if (!characters.find((char) => char.id === data.id)) {
+        if (data.name) {
+          setCharacters((oldCharacter) => [...oldCharacter, data]);
+        } else {
+          window.alert(data);
+        }
+      } else {
+        window.alert("El id ya esta ingresado");
+      }
     } catch (error) {
       // (err) => window.alert(err);
     }
@@ -54,7 +55,17 @@ function App() {
             }
           />
         )}
-        <Route path="/home" element={<Home setUsers={setUsers} />} />
+        <Route
+          path="/home"
+          element={
+            <Home
+              setUsers={setUsers}
+              searchCharacter={searchCharacter}
+              onClose={onClose}
+              characters={characters}
+            />
+          }
+        />
         <Route path="/about" element={<About setUsers={setUsers} />} />
         <Route path="/detail/:id" element={<Detail setUsers={setUsers} />} />
         <Route path="/favorite" element={<Favorites setUsers={setUsers} />} />
